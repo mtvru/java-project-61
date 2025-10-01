@@ -37,6 +37,7 @@ public final class Even {
                         answer, correctAnswer, System.lineSeparator()
                     );
                     System.out.println("Let's try again, " + name + "!");
+
                     return;
                 }
 
