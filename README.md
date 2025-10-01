@@ -12,3 +12,5 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mtvru_java-project-61&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=mtvru_java-project-61)
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=mtvru_java-project-61)
+
+Task №5: https://asciinema.org/a/UaokVb50BWiXY5WN8o59nOOoO
