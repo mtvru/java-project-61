@@ -3,8 +3,8 @@
  */
 package hexlet.code;
 
-public class App {
-    protected App() {
+public final class App {
+    private App() {
         throw new UnsupportedOperationException();
     }
 

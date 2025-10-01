@@ -2,8 +2,8 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Cli {
-    protected Cli() {
+public final class Cli {
+    private Cli() {
         throw new UnsupportedOperationException();
     }
 
