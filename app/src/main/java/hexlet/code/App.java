@@ -17,6 +17,7 @@ public final class App {
         System.out.println("2 - Even");
         System.out.println("0 - Exit");
         int gameNumber = Cli.getScanner().nextInt();
+        Cli.getScanner().nextLine();
         System.out.println(
             "Your choice: " + gameNumber + System.lineSeparator()
         );

@@ -33,7 +33,7 @@ public final class Even {
                 if (!correct) {
                     String correctAnswer = answer.equals("yes") ? "no" : "yes";
                     System.out.printf(
-                        "'%s' is wrong answer ;(. Correct answer was '%s'%s",
+                        "'%s' is wrong answer ;(. Correct answer was '%s'.%s",
                         answer, correctAnswer, System.lineSeparator()
                     );
                     System.out.println("Let's try again, " + name + "!");
