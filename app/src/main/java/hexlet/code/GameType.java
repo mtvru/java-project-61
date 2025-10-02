@@ -14,6 +14,10 @@ public enum GameType {
      */
     CALC(3, "Calc"),
     /**
+     * Greatest common divisor game.
+     */
+    GCD(4, "GCD"),
+    /**
      * Exit of the game.
      */
     EXIT(0, "Exit");

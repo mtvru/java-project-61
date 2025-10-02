@@ -5,6 +5,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
 
 public final class App {
     private App() {
@@ -43,6 +44,9 @@ public final class App {
             case GameType.CALC:
                 playerName = Cli.greeting();
                 Engine.start(playerName, new Calc());
+            case GameType.GCD:
+                playerName = Cli.greeting();
+                Engine.start(playerName, new Gcd());
                 break;
             default:
                 System.exit(0);
