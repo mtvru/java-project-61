@@ -20,3 +20,5 @@ Task №6: https://asciinema.org/a/xYA0pL2IB9wBG34FuykiyN4ma
 Task №7: https://asciinema.org/a/UfecJSMREadQZ8ztFYYwiRCqA
 
 Task №8: https://asciinema.org/a/s4RnbdX4v5u58Mq3GEhREZ5EC
+
+Task №9: https://asciinema.org/a/SZmaphazblZvI8pyC5jhnQzfg

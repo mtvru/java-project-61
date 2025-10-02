@@ -22,6 +22,10 @@ public enum GameType {
      */
     PROGRESSION(5, "Progression"),
     /**
+     * Prime number game.
+     */
+    PRIME(6, "Prime"),
+    /**
      * Exit of the game.
      */
     EXIT(0, "Exit");
