@@ -15,5 +15,6 @@
 
 Task №5: https://asciinema.org/a/UaokVb50BWiXY5WN8o59nOOoO (I forgot the "Your answer: " message. I added it in task №6.)
 
-Task №6: 
-https://asciinema.org/a/xYA0pL2IB9wBG34FuykiyN4ma
+Task №6: https://asciinema.org/a/xYA0pL2IB9wBG34FuykiyN4ma
+
+Task №7: https://asciinema.org/a/UfecJSMREadQZ8ztFYYwiRCqA
