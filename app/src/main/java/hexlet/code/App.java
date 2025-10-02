@@ -6,6 +6,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
 
 public final class App {
     private App() {
@@ -47,6 +48,9 @@ public final class App {
             case GameType.GCD:
                 playerName = Cli.greeting();
                 Engine.start(playerName, new Gcd());
+            case GameType.PROGRESSION:
+                playerName = Cli.greeting();
+                Engine.start(playerName, new Progression());
                 break;
             default:
                 System.exit(0);

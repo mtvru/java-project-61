@@ -18,6 +18,10 @@ public enum GameType {
      */
     GCD(4, "GCD"),
     /**
+     * Arithmetic progression game.
+     */
+    PROGRESSION(5, "Progression"),
+    /**
      * Exit of the game.
      */
     EXIT(0, "Exit");
