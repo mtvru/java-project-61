@@ -3,6 +3,9 @@
  */
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+
 public final class App {
     private App() {
         throw new UnsupportedOperationException();
@@ -13,22 +16,33 @@ public final class App {
      */
     public static void main(final String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("0 - Exit");
+
+        for (GameType gameType : GameType.values()) {
+            System.out.println(
+                gameType.getNumber() + " - " + gameType.getTitle()
+            );
+        }
+
         int gameNumber = Cli.getScanner().nextInt();
         Cli.getScanner().nextLine();
         System.out.println(
             "Your choice: " + gameNumber + System.lineSeparator()
         );
 
-        switch (gameNumber) {
-            case 1:
+        GameType gameType = GameType.fromNumber(gameNumber);
+        String playerName;
+
+        switch (gameType) {
+            case GameType.GREET:
                 Cli.greeting();
                 break;
-            case 2:
-                String name = Cli.greeting();
-                Even.play(name);
+            case GameType.EVEN:
+                playerName = Cli.greeting();
+                Engine.start(playerName, new Even());
+                break;
+            case GameType.CALC:
+                playerName = Cli.greeting();
+                Engine.start(playerName, new Calc());
                 break;
             default:
                 System.exit(0);
