@@ -25,6 +25,10 @@ public final class Progression implements GameInterface {
      * Hidden number.
      */
     private int hiddenNumber;
+    /**
+     * Random generator.
+     */
+    private final Random random = new Random();
 
     @Override
     public String description() {
@@ -35,7 +39,7 @@ public final class Progression implements GameInterface {
     public String question() {
         StringBuilder question = new StringBuilder("Question: ");
         int[] numbers = getNumbers();
-        int hiddenIndex =  new Random().nextInt(numbers.length);
+        int hiddenIndex =  random.nextInt(numbers.length);
 
         for (int i = 0; i < numbers.length; i++) {
             if (hiddenIndex == i) {
@@ -62,7 +66,7 @@ public final class Progression implements GameInterface {
 
     private int[] getNumbers() {
         int[] numbers = new int[PROGRESSION_LENGTH];
-        int start = new Random().nextInt(MAX_NUMBER);
+        int start = random.nextInt(MAX_NUMBER);
         int step = RandomGenerator.getDefault().nextInt(MIN_STEP, MAX_STEP);
 
         for (int i = 0; i < PROGRESSION_LENGTH; i++) {
