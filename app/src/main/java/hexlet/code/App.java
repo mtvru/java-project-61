@@ -26,11 +26,10 @@ public final class App {
             );
         }
 
+        System.out.print("Your choice: ");
         int gameNumber = Cli.getScanner().nextInt();
         Cli.getScanner().nextLine();
-        System.out.println(
-            "Your choice: " + gameNumber + System.lineSeparator()
-        );
+        System.out.print(System.lineSeparator());
 
         GameType gameType = GameType.fromNumber(gameNumber);
         String playerName;
