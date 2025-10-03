@@ -46,9 +46,11 @@ public final class App {
             case GameType.CALC:
                 playerName = Cli.greeting();
                 Engine.start(playerName, new Calc());
+                break;
             case GameType.GCD:
                 playerName = Cli.greeting();
                 Engine.start(playerName, new Gcd());
+                break;
             case GameType.PROGRESSION:
                 playerName = Cli.greeting();
                 Engine.start(playerName, new Progression());
