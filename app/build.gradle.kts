@@ -17,12 +17,6 @@ application {
     mainClass = "hexlet.code.App"
 }
 
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
-
 sonar {
     properties {
         property("sonar.projectKey", "mtvru_java-project-61")
