@@ -1,9 +1,13 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.random.RandomGenerator;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-public final class Progression implements GameInterface {
+public final class Progression {
+    /**
+     * Number of questions.
+     */
+    private static final int NUMBER_OF_QUESTIONS = 3;
     /**
      * Max random number.
      */
@@ -21,53 +25,51 @@ public final class Progression implements GameInterface {
      */
     private static final int PROGRESSION_LENGTH = 10;
 
-    /**
-     * Hidden number.
-     */
-    private int hiddenNumber;
-    /**
-     * Random generator.
-     */
-    private final Random random = new Random();
+    private Progression() {
+        throw new UnsupportedOperationException();
+    }
 
-    @Override
-    public String description() {
+    /**
+     * Play the game.
+     */
+    public static void play() {
+        String[][] qaList = new String[NUMBER_OF_QUESTIONS][2];
+
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+            int hiddenNumber = 0;
+            StringBuilder question = new StringBuilder("Question: ");
+            int[] numbers = getNumbers();
+            int hiddenIndex =  Utils.generateNumber(0, numbers.length - 1);
+
+            for (int j = 0; j < numbers.length; j++) {
+                if (hiddenIndex == j) {
+                    question.append(".. ");
+                    hiddenNumber = numbers[i];
+                    continue;
+                }
+
+                question.append(numbers[i]).append(" ");
+            }
+
+            qaList[i][0] = question.toString();
+            qaList[i][1] = answer(hiddenNumber);
+        }
+
+        Engine.run(description(), qaList);
+    }
+
+    private static String description() {
         return "What number is missing in the progression?";
     }
 
-    @Override
-    public String question() {
-        StringBuilder question = new StringBuilder("Question: ");
-        int[] numbers = getNumbers();
-        int hiddenIndex =  random.nextInt(numbers.length);
-
-        for (int i = 0; i < numbers.length; i++) {
-            if (hiddenIndex == i) {
-                question.append(".. ");
-                this.hiddenNumber = numbers[i];
-                continue;
-            }
-
-            question.append(numbers[i]).append(" ");
-        }
-
-        return question.toString();
+    private static String answer(final int number) {
+        return String.valueOf(number);
     }
 
-    @Override
-    public boolean checkAnswer(final String answer) {
-        return this.hiddenNumber == Integer.parseInt(answer);
-    }
-
-    @Override
-    public String correctAnswer() {
-        return String.valueOf(this.hiddenNumber);
-    }
-
-    private int[] getNumbers() {
+    private static int[] getNumbers() {
         int[] numbers = new int[PROGRESSION_LENGTH];
-        int start = random.nextInt(MAX_NUMBER);
-        int step = RandomGenerator.getDefault().nextInt(MIN_STEP, MAX_STEP);
+        int start = Utils.generateNumber(1, MAX_NUMBER);
+        int step = Utils.generateNumber(MIN_STEP, MAX_STEP);
 
         for (int i = 0; i < PROGRESSION_LENGTH; i++) {
             numbers[i] = start + i * step;

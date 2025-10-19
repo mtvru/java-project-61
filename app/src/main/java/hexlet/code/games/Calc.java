@@ -1,65 +1,57 @@
 package hexlet.code.games;
 
-public final class Calc implements GameInterface {
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
+public final class Calc {
+    /**
+     * Number of questions.
+     */
+    private static final int NUMBER_OF_QUESTIONS = 3;
+
     /**
      * Max random number.
      */
     private static final int MAX_NUMBER = 50;
 
-    /**
-     * First number.
-     */
-    private int firstNumber;
-    /**
-     * Second number.
-     */
-    private int secondNumber;
-    /**
-     * Operator.
-     */
-    private char operator;
+    private Calc() {
+        throw new UnsupportedOperationException();
+    }
 
-    @Override
-    public String description() {
+    /**
+     * Play the game.
+     */
+    public static void play() {
+        String[][] qaList = new String[NUMBER_OF_QUESTIONS][2];
+
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+            int firstNumber = Utils.generateNumber(1, MAX_NUMBER);
+            int secondNumber = Utils.generateNumber(1, MAX_NUMBER);
+            char[] allowedOperator = new char[]{'+', '-', '*'};
+            int index = (int) (Math.random() * allowedOperator.length);
+            char operator = allowedOperator[index];
+            qaList[i][0] = String.format(
+                    "Question: %d %c %d",
+                    firstNumber, operator, secondNumber
+            );
+            qaList[i][1] = answer(firstNumber, secondNumber, operator);
+        }
+
+        Engine.run(description(), qaList);
+    }
+
+    private static String description() {
         return "What is the result of the expression?";
     }
 
-    @Override
-    public String question() {
-        this.firstNumber = (int) (Math.random() * MAX_NUMBER);
-        this.secondNumber = (int) (Math.random() * MAX_NUMBER);
-        char[] allowedOperator = new char[]{'+', '-', '*'};
-        int index = (int) (Math.random() * allowedOperator.length);
-        this.operator = allowedOperator[index];
-
-        return String.format(
-                "Question: %d %c %d",
-                this.firstNumber, this.operator, this.secondNumber
-        );
-    }
-
-    @Override
-    public boolean checkAnswer(final String answer) {
-        int correctResult = this.correctResult();
-
-        try {
-            return Integer.parseInt(answer) == correctResult;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    @Override
-    public String correctAnswer() {
-        return String.valueOf(this.correctResult());
-    }
-
-    private int correctResult() {
-        return switch (this.operator) {
-            case '+' -> this.firstNumber + this.secondNumber;
-            case '-' -> this.firstNumber - this.secondNumber;
-            case '*' -> this.firstNumber * this.secondNumber;
+    private static String answer(final int firstNumber, final int secondNumber, final char operator) {
+        int answer = switch (operator) {
+            case '+' -> firstNumber + secondNumber;
+            case '-' -> firstNumber - secondNumber;
+            case '*' -> firstNumber * secondNumber;
             default -> throw new IllegalArgumentException();
         };
+
+        return String.valueOf(answer);
     }
 }

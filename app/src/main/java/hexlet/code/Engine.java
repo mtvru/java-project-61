@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.GameInterface;
+import java.util.Scanner;
 
 public final class Engine {
     /**
@@ -13,25 +13,31 @@ public final class Engine {
     }
 
     /**
-     * Start the game.
-     * @param name player
-     * @param game selected game by player
+     * Run the game.
+     * @param description description of the game displayed before questions.
+     * @param qaList two-dimensional array of question–answer pairs.
      */
-    public static void start(final String name, final GameInterface game) {
-        System.out.println(game.description());
+    public static void run(final String description, final String[][] qaList) {
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < REQUIRED_CORRECT_ANSWERS; i++) {
-            System.out.println(game.question());
-            String answer = Cli.getScanner().nextLine();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(description);
+
+        for (String[] qa : qaList) {
+            System.out.println(qa[0]);
+            String answer = scanner.nextLine();
             System.out.println("Your answer: " + answer);
+            String correctAnswer = qa[1];
 
-            if (!game.checkAnswer(answer)) {
-                String correctAnswer = game.correctAnswer();
+            if (!answer.equals(correctAnswer)) {
                 System.out.printf(
                     "'%s' is wrong answer ;(. Correct answer was '%s'.%s",
                     answer, correctAnswer, System.lineSeparator()
                 );
-                System.out.println("Let's try again, " + name + "!");
+                System.out.println("Let's try again, " + userName + "!");
 
                 return;
             }
@@ -39,6 +45,6 @@ public final class Engine {
             System.out.println("Correct!");
         }
 
-        System.out.println("Congratulations, " + name + "!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 }

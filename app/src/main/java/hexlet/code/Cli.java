@@ -3,40 +3,21 @@ package hexlet.code;
 import java.util.Scanner;
 
 public final class Cli {
-    /**
-     * Single scanner for whole app.
-     */
-    private static Scanner scanner = new Scanner(System.in);
-
     private Cli() {
         throw new UnsupportedOperationException();
     }
 
     /**
-     * Greeting by name.
-     *
-     * @return name
+     * Greeting.
      */
-    public static String greeting() {
+    public static void greet() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String name = getScanner().nextLine();
-        System.out.println("Hello, " + name + "!");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
 
-        return name;
-    }
-
-    /**
-     * @return scanner
-     */
-    public static Scanner getScanner() {
-        return scanner;
-    }
-
-    /**
-     * Close scanner.
-     */
-    public static void closeScanner() {
         scanner.close();
     }
 }

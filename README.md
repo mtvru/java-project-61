@@ -13,7 +13,7 @@ make -C app run-dist
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mtvru_java-project-61&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=mtvru_java-project-61)
 
 ### Short video demos of the games
-"Even" game: https://asciinema.org/a/UaokVb50BWiXY5WN8o59nOOoO (I forgot the "Your answer: " message. I added it in task №6.)
+"Even" game: https://asciinema.org/a/UaokVb50BWiXY5WN8o59nOOoO
 
 "Calc" game: https://asciinema.org/a/xYA0pL2IB9wBG34FuykiyN4ma
 

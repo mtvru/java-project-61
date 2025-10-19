@@ -1,6 +1,13 @@
 package hexlet.code.games;
 
-public class Prime implements GameInterface {
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
+public final class Prime {
+    /**
+     * Number of questions.
+     */
+    private static final int NUMBER_OF_QUESTIONS = 3;
     /**
      * Max random number.
      */
@@ -14,46 +21,46 @@ public class Prime implements GameInterface {
      */
     private static final int ODD_NUMBER = 3;
 
-    /**
-     * Prime number.
-     */
-    private int number;
+    private Prime() {
+        throw new UnsupportedOperationException();
+    }
 
-    @Override
-    public final String description() {
+    /**
+     * Play the game.
+     */
+    public static void play() {
+        String[][] qaList = new String[NUMBER_OF_QUESTIONS][2];
+
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+            int number = Utils.generateNumber(1, MAX_NUMBER);
+            qaList[i][0] = "Question: " + number;
+            qaList[i][1] = answer(number);
+        }
+
+        Engine.run(description(), qaList);
+    }
+
+    private static String description() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    @Override
-    public final String question() {
-        this.number = (int) (Math.random() * MAX_NUMBER);
-
-        return  "Question: " + this.number;
+    private static String answer(final int number) {
+        return isPrime(number) ? "yes" : "no";
     }
 
-    @Override
-    public final boolean checkAnswer(final String answer) {
-        return this.isPrime() == answer.equals("yes");
-    }
-
-    @Override
-    public final String correctAnswer() {
-        return this.isPrime() ? "yes" : "no";
-    }
-
-    private boolean isPrime() {
-        if (this.number < EVEN_NUMBER) {
+    private static boolean isPrime(final int number) {
+        if (number < EVEN_NUMBER) {
             return false;
-        } else if (this.number == EVEN_NUMBER) {
+        } else if (number == EVEN_NUMBER) {
             return true;
-        } else if (this.number % EVEN_NUMBER == 0) {
+        } else if (number % EVEN_NUMBER == 0) {
             return false;
         }
 
-        int sqrtN = (int) Math.sqrt(this.number);
+        int sqrtN = (int) Math.sqrt(number);
 
         for (int i = ODD_NUMBER; i <= sqrtN; i += 2) {
-            if (this.number % i == 0) {
+            if (number % i == 0) {
                 return false;
             }
         }
