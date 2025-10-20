@@ -38,17 +38,23 @@ public final class Gcd {
         return "Find the greatest common divisor of given numbers.";
     }
 
-    private static String answer(final int firstNumber, final int secondNumber) {
+    private static String answer(
+        final int firstNumber,
+        final int secondNumber
+    ) {
         return String.valueOf(getGcd(firstNumber, secondNumber));
     }
 
-    private static int getGcd(int firstNumber, int secondNumber) {
-        while (secondNumber != 0) {
-            int remainder = firstNumber % secondNumber;
-            firstNumber = secondNumber;
-            secondNumber = remainder;
+    private static int getGcd(final int firstNumber, final int secondNumber) {
+        int firstNumb = firstNumber;
+        int secondNumb = secondNumber;
+
+        while (secondNumb != 0) {
+            int remainder = firstNumb % secondNumb;
+            firstNumb = secondNumb;
+            secondNumb = remainder;
         }
 
-        return firstNumber;
+        return firstNumb;
     }
 }

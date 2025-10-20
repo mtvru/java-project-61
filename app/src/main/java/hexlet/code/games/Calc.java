@@ -44,7 +44,11 @@ public final class Calc {
         return "What is the result of the expression?";
     }
 
-    private static String answer(final int firstNumber, final int secondNumber, final char operator) {
+    private static String answer(
+        final int firstNumber,
+        final int secondNumber,
+        final char operator
+    ) {
         int answer = switch (operator) {
             case '+' -> firstNumber + secondNumber;
             case '-' -> firstNumber - secondNumber;
