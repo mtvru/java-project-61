@@ -1,6 +1,6 @@
 # Brain Games
 
-This is a simple console project that includes five small games.
+This is a simple console project that includes several small games.
 
 ### Run project
 
