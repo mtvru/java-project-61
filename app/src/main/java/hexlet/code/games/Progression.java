@@ -44,11 +44,11 @@ public final class Progression {
             for (int j = 0; j < numbers.length; j++) {
                 if (hiddenIndex == j) {
                     question.append(".. ");
-                    hiddenNumber = numbers[i];
+                    hiddenNumber = numbers[j];
                     continue;
                 }
 
-                question.append(numbers[i]).append(" ");
+                question.append(numbers[j]).append(" ");
             }
 
             qaList[i][0] = question.toString();
