@@ -23,7 +23,7 @@ public final class Gcd {
             int firstNumber = Utils.generateNumber(1, MAX_NUMBER);
             int secondNumber = Utils.generateNumber(1, MAX_NUMBER);
             qaList[i][0] = firstNumber + " " + secondNumber;
-            qaList[i][1] = answer(firstNumber, secondNumber);
+            qaList[i][1] = String.valueOf(getGcd(firstNumber, secondNumber));
         }
 
         Engine.run(description(), qaList);
@@ -31,13 +31,6 @@ public final class Gcd {
 
     private static String description() {
         return "Find the greatest common divisor of given numbers.";
-    }
-
-    private static String answer(
-        final int firstNumber,
-        final int secondNumber
-    ) {
-        return String.valueOf(getGcd(firstNumber, secondNumber));
     }
 
     private static int getGcd(final int firstNumber, final int secondNumber) {

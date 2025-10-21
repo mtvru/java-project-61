@@ -23,7 +23,7 @@ public final class Calc {
             int firstNumber = Utils.generateNumber(1, MAX_NUMBER);
             int secondNumber = Utils.generateNumber(1, MAX_NUMBER);
             char[] allowedOperator = new char[]{'+', '-', '*'};
-            int index = Utils.generateNumber(0, allowedOperator.length);
+            int index = Utils.generateNumber(0, allowedOperator.length - 1);
             char operator = allowedOperator[index];
             qaList[i][0] = String.format(
                     "%d %c %d",
