@@ -55,11 +55,11 @@ public final class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
-        int gameNumber = scanner.nextInt();
+        int userChoice = scanner.nextInt();
         scanner.nextLine();
         System.out.print(System.lineSeparator());
 
-        switch (gameNumber) {
+        switch (userChoice) {
             case GREET_NUMBER:
                 Cli.greet();
                 break;
@@ -79,7 +79,7 @@ public final class App {
                 Prime.play();
                 break;
             default:
-                System.exit(0);
+                System.out.println("Unknown user choice " + userChoice);
         }
     }
 }

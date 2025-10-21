@@ -5,11 +5,6 @@ import hexlet.code.Utils;
 
 public final class Calc {
     /**
-     * Number of questions.
-     */
-    private static final int NUMBER_OF_QUESTIONS = 3;
-
-    /**
      * Max random number.
      */
     private static final int MAX_NUMBER = 50;
@@ -22,16 +17,16 @@ public final class Calc {
      * Play the game.
      */
     public static void play() {
-        String[][] qaList = new String[NUMBER_OF_QUESTIONS][2];
+        String[][] qaList = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstNumber = Utils.generateNumber(1, MAX_NUMBER);
             int secondNumber = Utils.generateNumber(1, MAX_NUMBER);
             char[] allowedOperator = new char[]{'+', '-', '*'};
-            int index = (int) (Math.random() * allowedOperator.length);
+            int index = Utils.generateNumber(0, allowedOperator.length);
             char operator = allowedOperator[index];
             qaList[i][0] = String.format(
-                    "Question: %d %c %d",
+                    "%d %c %d",
                     firstNumber, operator, secondNumber
             );
             qaList[i][1] = answer(firstNumber, secondNumber, operator);
@@ -53,7 +48,7 @@ public final class Calc {
             case '+' -> firstNumber + secondNumber;
             case '-' -> firstNumber - secondNumber;
             case '*' -> firstNumber * secondNumber;
-            default -> throw new IllegalArgumentException();
+            default -> throw new RuntimeException("Unknown input: " + operator);
         };
 
         return String.valueOf(answer);

@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public final class Engine {
     /**
-     * Required correct answers.
+     * Number of rounds.
      */
-    private static final int REQUIRED_CORRECT_ANSWERS = 3;
+    public static final int ROUNDS = 3;
 
     private Engine() {
         throw new UnsupportedOperationException();
@@ -27,7 +27,7 @@ public final class Engine {
         System.out.println(description);
 
         for (String[] qa : qaList) {
-            System.out.println(qa[0]);
+            System.out.println("Question: " + qa[0]);
             String answer = scanner.nextLine();
             System.out.println("Your answer: " + answer);
             String correctAnswer = qa[1];

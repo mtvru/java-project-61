@@ -5,11 +5,6 @@ import hexlet.code.Utils;
 
 public final class Gcd {
     /**
-     * Number of questions.
-     */
-    private static final int NUMBER_OF_QUESTIONS = 3;
-
-    /**
      * Max random number.
      */
     private static final int MAX_NUMBER = 100;
@@ -22,12 +17,12 @@ public final class Gcd {
      * Play the game.
      */
     public static void play() {
-        String[][] qaList = new String[NUMBER_OF_QUESTIONS][2];
+        String[][] qaList = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstNumber = Utils.generateNumber(1, MAX_NUMBER);
             int secondNumber = Utils.generateNumber(1, MAX_NUMBER);
-            qaList[i][0] = "Question: " + firstNumber + " " + secondNumber;
+            qaList[i][0] = firstNumber + " " + secondNumber;
             qaList[i][1] = answer(firstNumber, secondNumber);
         }
 
