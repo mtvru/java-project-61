@@ -30,7 +30,7 @@ public final class Prime {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int number = Utils.generateNumber(1, MAX_NUMBER);
             qaList[i][0] = String.valueOf(number);
-            qaList[i][1] = isPrime(number) ? "yes" : "no";;
+            qaList[i][1] = isPrime(number) ? "yes" : "no";
         }
 
         Engine.run(description(), qaList);
