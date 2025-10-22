@@ -25,10 +25,11 @@ public final class Calc {
             char[] allowedOperator = new char[]{'+', '-', '*'};
             int index = Utils.generateNumber(0, allowedOperator.length - 1);
             char operator = allowedOperator[index];
-            qaList[i][0] = String.format(
+            String question = String.format(
                     "%d %c %d",
                     firstNumber, operator, secondNumber
             );
+            qaList[i][0] = question;
             qaList[i][1] = answer(firstNumber, secondNumber, operator);
         }
 

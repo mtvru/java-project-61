@@ -8,14 +8,6 @@ public final class Prime {
      * Max random number.
      */
     private static final int MAX_NUMBER = 90;
-    /**
-     * Even number.
-     */
-    private static final int EVEN_NUMBER = 2;
-    /**
-     * Odd number.
-     */
-    private static final int ODD_NUMBER = 3;
 
     private Prime() {
         throw new UnsupportedOperationException();
@@ -29,8 +21,10 @@ public final class Prime {
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int number = Utils.generateNumber(1, MAX_NUMBER);
-            qaList[i][0] = String.valueOf(number);
-            qaList[i][1] = isPrime(number) ? "yes" : "no";
+            String question = String.valueOf(number);
+            String answer = isPrime(number) ? "yes" : "no";
+            qaList[i][0] = question;
+            qaList[i][1] = answer;
         }
 
         Engine.run(description(), qaList);
@@ -41,17 +35,20 @@ public final class Prime {
     }
 
     private static boolean isPrime(final int number) {
-        if (number < EVEN_NUMBER) {
+        final int evenNumber = 2;
+        final int oddNumber = 3;
+
+        if (number < evenNumber) {
             return false;
-        } else if (number == EVEN_NUMBER) {
+        } else if (number == evenNumber) {
             return true;
-        } else if (number % EVEN_NUMBER == 0) {
+        } else if (number % evenNumber == 0) {
             return false;
         }
 
         int sqrtN = (int) Math.sqrt(number);
 
-        for (int i = ODD_NUMBER; i <= sqrtN; i += 2) {
+        for (int i = oddNumber; i <= sqrtN; i += 2) {
             if (number % i == 0) {
                 return false;
             }

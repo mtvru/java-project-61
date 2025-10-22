@@ -32,25 +32,17 @@ public final class Progression {
         String[][] qaList = new String[Engine.ROUNDS][2];
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            String hiddenNumber = "";
-            StringBuilder question = new StringBuilder();
             int start = Utils.generateNumber(1, MAX_NUMBER);
             int step = Utils.generateNumber(MIN_STEP, MAX_STEP);
-            String[] numbers = makeProgression(start, step, PROGRESSION_LENGTH);
-            int hiddenIndex =  Utils.generateNumber(0, numbers.length - 1);
-
-            for (int j = 0; j < numbers.length; j++) {
-                if (hiddenIndex == j) {
-                    question.append(".. ");
-                    hiddenNumber = numbers[j];
-                    continue;
-                }
-
-                question.append(numbers[j]).append(" ");
-            }
-
-            qaList[i][0] = question.toString();
-            qaList[i][1] = hiddenNumber;
+            int length = PROGRESSION_LENGTH;
+            String[] progression = makeProgression(start, step, length);
+            int maxNumber = progression.length - 1;
+            int hiddenMemberIndex =  Utils.generateNumber(0, maxNumber);
+            String answer = progression[hiddenMemberIndex];
+            progression[hiddenMemberIndex] = "..";
+            String question = String.join(" ", progression);
+            qaList[i][0] = question;
+            qaList[i][1] = answer;
         }
 
         Engine.run(description(), qaList);

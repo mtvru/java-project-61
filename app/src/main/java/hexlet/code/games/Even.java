@@ -21,8 +21,10 @@ public final class Even {
 
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int number = Utils.generateNumber(1, MAX_NUMBER);
-            qaList[i][0] = String.valueOf(number);
-            qaList[i][1] = isEven(number) ? "yes" : "no";
+            String question = String.valueOf(number);
+            String answer = isEven(number) ? "yes" : "no";
+            qaList[i][0] = question;
+            qaList[i][1] = answer;
         }
 
         Engine.run(description(), qaList);

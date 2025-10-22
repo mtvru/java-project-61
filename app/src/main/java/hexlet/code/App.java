@@ -12,31 +12,6 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public final class App {
-    /**
-     * Greet game number.
-     */
-    private static final int GREET_NUMBER = 1;
-    /**
-     * Even game number.
-     */
-    private static final int EVEN_NUMBER = 2;
-    /**
-     * Calc game number.
-     */
-    private static final int CALC_NUMBER = 3;
-    /**
-     * GCD game number.
-     */
-    private static final int GCD_NUMBER = 4;
-    /**
-     * Progression game number.
-     */
-    private static final int PROGRESSION_NUMBER = 5;
-    /**
-     * Prime game number.
-     */
-    private static final int PRIME_NUMBER = 6;
-
     private App() {
         throw new UnsupportedOperationException();
     }
@@ -55,27 +30,26 @@ public final class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
-        int userChoice = scanner.nextInt();
-        scanner.nextLine();
+        String userChoice = scanner.nextLine();
         System.out.print(System.lineSeparator());
 
         switch (userChoice) {
-            case GREET_NUMBER:
+            case "1":
                 Cli.greet();
                 break;
-            case EVEN_NUMBER:
+            case "2":
                 Even.play();
                 break;
-            case CALC_NUMBER:
+            case "3":
                 Calc.play();
                 break;
-            case GCD_NUMBER:
+            case "4":
                 Gcd.play();
                 break;
-            case PROGRESSION_NUMBER:
+            case "5":
                 Progression.play();
                 break;
-            case PRIME_NUMBER:
+            case "6":
                 Prime.play();
                 break;
             default:

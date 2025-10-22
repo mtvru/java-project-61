@@ -22,8 +22,10 @@ public final class Gcd {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstNumber = Utils.generateNumber(1, MAX_NUMBER);
             int secondNumber = Utils.generateNumber(1, MAX_NUMBER);
-            qaList[i][0] = firstNumber + " " + secondNumber;
-            qaList[i][1] = String.valueOf(getGcd(firstNumber, secondNumber));
+            String question = firstNumber + " " + secondNumber;
+            String answer = String.valueOf(getGcd(firstNumber, secondNumber));
+            qaList[i][0] = question;
+            qaList[i][1] = answer;
         }
 
         Engine.run(description(), qaList);
